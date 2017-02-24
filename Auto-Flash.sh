@@ -11,6 +11,7 @@
 
 # perform backup and pull it to the host computer
 
+echo "Making backup!"
 mkdir Local-Backup
 adb reboot recovery
 adb wait-for-device
@@ -20,6 +21,7 @@ adb pull /sdcard/TWRP/BACKUPS Local-Backup
 
 # reboot to recovery and perform initial wipe
 
+echo "Rebooting to recovery for initial wipe!"
 adb reboot recovery
 adb wait-for-device
 adb shell wipe system
@@ -32,15 +34,18 @@ adb wait-for-device
 
 # push necessary files to folder on sdcard of device (modify if your device uses a different sdcard configuration)
 
+echo "Pushing necessary files to custom folder in /sdcard!"
 adb shell mkdir /sdcard/Setup
 adb push ROM.zip /sdcard/Setup
 adb push GApps.zip /sdcard/Setup
 # determine if custom kernel is to be pushed/installed
-if [ -e Kernel.zip]
+if [ -e Kernel.zip] ; then
+  echo "Custom Kernel Detected"
   adb push Kernel.zip /sdcard/Setup
 fi
 # determine if root is to be pushed/installed
-if [ -e Root.zip]
+if [ -e Root.zip] ; then
+  echo "Root Installation Detected"
   adb push Root.zip /sdcard/Setup
 fi
 # push appropiate number of mods to sdcard (not implemented, just documentation)
@@ -51,6 +56,7 @@ adb push Mod3.zip /sdcard/Setup
 
 # install all the files and boot (need condtionals for kernel and root)
 
+echo "Installing all files and booting!"
 adb shell install /sdcard/Setup/ROM.zip
 adb shell install /sdcard/Setup/GApps.zip
 adb shell install /sdcard/Setup/Kernel.zip

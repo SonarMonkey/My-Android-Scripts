@@ -1,14 +1,13 @@
 #!/bin/sh
 
 # Author: SonarMonkey
-# Device: Nexus 5X
 # Script Name: Auto-Flash
 # Version Type: Unstable
 # Version Number: 0.0.0.2
 # Created: Friday, February 24, 2017
 # Last Updated: Friday, February 24, 2017
 # Appropiate Use: "./Auto-Flash.sh <number of mods>"
-# Notes: This script must be placed in the same directory as your ROM, GApps, and Root zips, and must be modified if you wish to install more than 3 other mods. The zips containing the ROM, GApps, etc. you wish to flash must be named “ROM.zip” “GApps.zip” etc.
+# Important Notes: This script must be placed in the same directory as your ROM, GApps, and Root zips, and must be modified if you wish to install more than 3 other mods. The zips containing the ROM, GApps, etc. you wish to flash must be named “ROM.zip” “GApps.zip” etc.
 
 # perform backup and pull it to the host computer
 

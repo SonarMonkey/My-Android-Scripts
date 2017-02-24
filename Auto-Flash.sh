@@ -6,7 +6,12 @@
 # Version: Alpha 0.1
 # Created: Friday, February 24, 2017
 # Last Updated: Initial Alpha
+# Apropriate Use: "./Auto-Flash.sh <custom kernel y/n> <root y/n> <number of mods>"
 # Notes: This script must be placed in the same directory as your ROM, GApps, and Root zips, and must be modified if you wish to install more than 3 other mods. The zips containing the ROM, GApps, etc. you wish to flash must be named “ROM.zip” “GApps.zip” etc.
+
+FIRST_ARGUMENT="$1"
+FIRST_ARGUMENT="$2"
+FIRST_ARGUMENT="$3"
 
 # perform backup and pull it to the host computer
 

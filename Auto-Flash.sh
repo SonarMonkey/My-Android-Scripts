@@ -6,12 +6,8 @@
 # Version: Alpha 0.1
 # Created: Friday, February 24, 2017
 # Last Updated: Initial Alpha
-# Apropriate Use: "./Auto-Flash.sh <custom kernel y/n> <root y/n> <number of mods>"
+# Apropriate Use: "./Auto-Flash.sh <number of mods>"
 # Notes: This script must be placed in the same directory as your ROM, GApps, and Root zips, and must be modified if you wish to install more than 3 other mods. The zips containing the ROM, GApps, etc. you wish to flash must be named “ROM.zip” “GApps.zip” etc.
-
-FIRST_ARGUMENT="$1"
-FIRST_ARGUMENT="$2"
-FIRST_ARGUMENT="$3"
 
 # perform backup and pull it to the host computer
 
@@ -39,14 +35,21 @@ adb wait-for-device
 adb shell mkdir /sdcard/Setup
 adb push ROM.zip /sdcard/Setup
 adb push GApps.zip /sdcard/Setup
-adb push Kernel.zip /sdcard/Setup
-adb push Root.zip /sdcard/Setup
+# determine if custom kernel is to be pushed/installed
+if [ -e Kernel.zip]
+  adb push Kernel.zip /sdcard/Setup
+fi
+# determine if root is to be pushed/installed
+if [ -e Root.zip]
+  adb push Root.zip /sdcard/Setup
+fi
+# push appropiate number of mods to sdcard (not implemented, just documentation)
 adb push Mod1.zip /sdcard/Setup
 adb push Mod2.zip /sdcard/Setup
 adb push Mod3.zip /sdcard/Setup
 
 
-# install all the files and boot
+# install all the files and boot (need condtionals for kernel and root)
 
 adb shell install /sdcard/Setup/ROM.zip
 adb shell install /sdcard/Setup/GApps.zip

@@ -2,7 +2,7 @@
 
 # Author: SonarMonkey
 # Script Name: Auto-Flash
-# Version Type: Unstable
+# Version Type: Broken
 # Version Number: 0.0.0.2
 # Created: Friday, February 24, 2017
 # Last Updated: Friday, February 24, 2017
@@ -39,12 +39,12 @@ adb shell mkdir /sdcard/Setup
 adb push ROM.zip /sdcard/Setup
 adb push GApps.zip /sdcard/Setup
 # determine if custom kernel is to be pushed/installed
-if [ -e Kernel.zip] ; then
-  echo "Custom Kernel Detected"
+if [ -e Kernel.zip ] ; then
+  echo "Custom Kernel Installation Detected"
   adb push Kernel.zip /sdcard/Setup
 fi
 # determine if root is to be pushed/installed
-if [ -e Root.zip] ; then
+if [ -e Root.zip ] ; then
   echo "Root Installation Detected"
   adb push Root.zip /sdcard/Setup
 fi
